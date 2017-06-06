@@ -44,7 +44,8 @@ CREATE TABLE category
   created_date timestamp,
   updated_date timestamp,
   active_flag VARCHAR(1),
-  version_number INTEGER
+  version_number INTEGER,
+  UNIQUE(name, active_flag)
 );
 
 -- see StarterRevisioinEntity.java (hibernate provides a default REVINFO tale if 
