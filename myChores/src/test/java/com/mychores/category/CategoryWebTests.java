@@ -1,4 +1,4 @@
-package com.mychores.entity;
+package com.mychores.category;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -42,7 +42,7 @@ public class CategoryWebTests {
   
   @Test
   public void testFindAll() throws Exception {
-    mockMvc.perform(get("/categories")).andExpect(status().isOk())
+    mockMvc.perform(get("/api/categories")).andExpect(status().isOk())
       .andExpect(content().contentType(APPLICATION_JSON_UTF8))
       .andExpect((jsonPath("$[0].id", is(3))))
       .andExpect((jsonPath("$", hasSize(5))));

@@ -1,4 +1,4 @@
-package com.mychores.repository;
+package com.mychores.repository.jpa;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

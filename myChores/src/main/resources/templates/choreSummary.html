@@ -1,0 +1,72 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>Chore Summary</title>
+
+    <link rel="stylesheet" type="text/css" href="/starter/css/screen.css"></link>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css"></link>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.12.4.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="/starter/js/jquery.spring-friendly.min.js"></script>
+    <script type="text/javascript" src="/starter/js/pagination.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="topbar navbar navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-header">
+            <a class="navbar-brand page-scroll" href="#page-top">
+              <span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span>
+              <span class="light">MY</span> CHORE
+            </a>
+          </div>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse navbar-custom">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> elise@gmail.com
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Logout</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Add Chore</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="">
+        <h1>Navbar example</h1>
+        <table id="pagination" class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Date</th>
+              <th><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Category</th>
+              <th><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Amount</th>
+              <th><span class="glyphicon glyphicon-check" aria-hidden="true"></span> Notified</th>
+              <th><span class="glyphicon glyphicon-check" aria-hidden="true"></span> Paid</th>
+            </tr>
+          </thead>
+	    </table>
+      </div>
+    </div> 
+</body></html>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mychores.repository.mapper.ChoreEntryMapper">
+
+  <resultMap type="com.mychores.model.pagination.PageableResponse" id="result-output">
+    <id property="recordsFiltered" column="recordsFiltered" />
+    <result property="recordsTotal" column="recordsTotal"/>
+    <collection property="data" ofType="com.mychores.model.ChoreEntrySummary">
+      <result property="id" column="id"/>
+      <result property="category" column="category"/>
+      <result property="amount" column="amount"/>
+      <result property="choreDate" column="choreDate"/>
+      <result property="version" column="version"/>
+      <result property="paid" column="paid" typeHandler="com.mychores.typehandler.StrictBooleanYNConverter"/>
+      <result property="notified" column="notified" typeHandler="com.mychores.typehandler.StrictBooleanYNConverter"/>
+    </collection>
+  </resultMap>
+  
+  <select id="findDataTablesOutput" resultMap="result-output">
+    SELECT
+      recordsTotal AS recordsTotal,
+      COUNT(*) OVER() AS recordsFiltered,
+      id AS id,
+      amount AS amount,
+      paid AS paid,
+      notified AS notified,
+      category AS category,
+      choreDate AS choreDate,
+      version AS version
+    FROM (
+     SELECT
+        COUNT(*) OVER() AS recordsTotal,
+        ce.id AS id,
+        ce.amount AS amount,
+        ce.paid AS paid,
+        ce.notified AS notified,
+        cat.name AS category,
+        ce.chore_date AS choreDate,
+        ce.version_number AS version
+      FROM
+        chore_entry ce,
+        category cat
+      WHERE
+        ce.active_flag = 'Y' AND
+        cat.id = ce.category
+    ) AS rc
+    WHERE
+      id is not null
+      
+      <if test="order != null">
+      ORDER BY <if test="order.size == 0">rc.id</if>
+      <foreach item="item" collection="order" separator=" ">
+        <if test="item.column == 0">
+          choreDate <if test="item.dir == 'asc'">ASC</if><if test="item.dir == 'desc'">DESC</if>
+        </if>
+        <if test="item.column == 1">
+          category <if test="item.dir == 'asc'">ASC</if><if test="item.dir == 'desc'">DESC</if>
+        </if>
+        <if test="item.column == 2">
+          amount <if test="item.dir == 'asc'">ASC</if><if test="item.dir == 'desc'">DESC</if>
+        </if>
+        <if test="item.column == 3">
+          notified <if test="item.dir == 'asc'">ASC</if><if test="item.dir == 'desc'">DESC</if>
+        </if>
+        <if test="item.column == 4">
+          paid <if test="item.dir == 'asc'">ASC</if><if test="item.dir == 'desc'">DESC</if>
+        </if>
+      </foreach>
+      </if>
+      
+      <if test="start != null">
+        OFFSET #{start}
+      </if>
+      <if test="length != null">
+        LIMIT #{length}
+      </if>
+  </select>
+</mapper>

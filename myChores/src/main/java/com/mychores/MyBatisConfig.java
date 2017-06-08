@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 @Configuration
-@MapperScan(basePackages="starter.data.mapper")
+@MapperScan(basePackages="com.mychores.repository.mapper")
 public class MyBatisConfig {
   
   @Bean

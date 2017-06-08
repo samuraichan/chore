@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mychores.model.IdAndName;
-import com.mychores.repository.CategoryRepository;
+import com.mychores.repository.jpa.CategoryRepository;
 
 @Controller
 public class CategoryController {
@@ -15,7 +15,7 @@ public class CategoryController {
   @Autowired
   private CategoryRepository categoryRepository;
   
-  @RequestMapping(value = "/categories", method = RequestMethod.GET, produces = "application/json")
+  @RequestMapping(value = "/api/categories", method = RequestMethod.GET, produces = "application/json")
   @ResponseBody 
   public Iterable<IdAndName> getAllCategories(Object model) {
     return categoryRepository.findAllIdAndNames();

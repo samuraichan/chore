@@ -5,9 +5,9 @@ $(document).ready(function() {
     var table = $('#pagination').DataTable( {
         "processing": true,
         "serverSide": true,
-        "searching":   false,
+        "searching":   true,
         "ajax": {
-          "url": "/starter/pagination",
+          "url": "/starter/summary",
           "type": "POST",
           
           "data": function (d) {
@@ -24,9 +24,40 @@ $(document).ready(function() {
             }
         },
         "columns": [
-          { data: 'namedInsured'},
-          { data: 'status'},
-          { data: 'createdDateString'}
+          { data: 'choreDateDisplay'},
+          { data: 'category'},
+          { data: 'amount'},
+          { data: 'notified'},
+          { data: 'paid'}
+        ],
+        'columnDefs' : [{ // allow columns 1 and 2 to be displayed as HTML elements and not just straight up string values
+        	"targets": 4,
+        	"searchable": false,
+        	"orderable": true,
+            "data": "paid",
+            "render": function (data, type, full, meta ) {
+              if (data) {
+                return '<span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>';
+              }
+              else {
+                return '';	  
+              }
+            }	
+          },
+          {
+          	"targets": 3,
+          	"searchable": false,
+          	"orderable": true,
+            "data": "notified",
+            "render": function (data, type, full, meta ) {
+              if (data) {
+                return '<span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>';
+              }
+              else {
+                return '';	  
+              }
+            }	
+          }
         ]
     }).on( 'error.dt', function (e, settings, techNote, message ) { // triggered when response is NOT of 2XX
     	alert(message);
