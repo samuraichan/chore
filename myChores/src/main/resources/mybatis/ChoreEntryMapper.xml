@@ -13,8 +13,7 @@
       <result property="amount" column="amount"/>
       <result property="choreDate" column="choreDate"/>
       <result property="version" column="version"/>
-      <result property="paid" column="paid" typeHandler="com.mychores.typehandler.StrictBooleanYNConverter"/>
-      <result property="notified" column="notified" typeHandler="com.mychores.typehandler.StrictBooleanYNConverter"/>
+      <result property="status" column="status"/>
     </collection>
   </resultMap>
   
@@ -24,9 +23,8 @@
       COUNT(*) OVER() AS recordsFiltered,
       id AS id,
       amount AS amount,
-      paid AS paid,
-      notified AS notified,
       category AS category,
+      status AS status,
       choreDate AS choreDate,
       version AS version
     FROM (
@@ -34,17 +32,18 @@
         COUNT(*) OVER() AS recordsTotal,
         ce.id AS id,
         ce.amount AS amount,
-        ce.paid AS paid,
-        ce.notified AS notified,
         cat.name AS category,
+        status.name AS status,
         ce.chore_date AS choreDate,
         ce.version_number AS version
       FROM
         chore_entry ce,
-        category cat
+        category cat,
+        status status
       WHERE
         ce.active_flag = 'Y' AND
-        cat.id = ce.category
+        cat.id = ce.category AND
+        status.id = ce.status
     ) AS rc
     WHERE
       id is not null
@@ -62,10 +61,7 @@
           amount <if test="item.dir == 'asc'">ASC</if><if test="item.dir == 'desc'">DESC</if>
         </if>
         <if test="item.column == 3">
-          notified <if test="item.dir == 'asc'">ASC</if><if test="item.dir == 'desc'">DESC</if>
-        </if>
-        <if test="item.column == 4">
-          paid <if test="item.dir == 'asc'">ASC</if><if test="item.dir == 'desc'">DESC</if>
+          status <if test="item.dir == 'asc'">ASC</if><if test="item.dir == 'desc'">DESC</if>
         </if>
       </foreach>
       </if>

@@ -23,3 +23,20 @@ body {
   color:#ff3344;
 }
 
+#pagination tr.draft {
+  background-color: #f8eaea;
+}
+
+#pagination tr.approved {
+  background-color: #E9F3F2;
+}
+
+#pagination tr.paid {
+  background-color: #f9f9f9;
+}
+
+
+
+
+
+

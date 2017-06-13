@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS system_revision CASCADE;
 DROP TABLE IF EXISTS category CASCADE;
+DROP TABLE IF EXISTS status CASCADE;
 DROP TABLE IF EXISTS chore_entry CASCADE;
 DROP TABLE IF EXISTS chore_entry_m CASCADE;
 
@@ -9,11 +10,10 @@ CREATE TABLE chore_entry
 (
   id SERIAL PRIMARY KEY,
   category INTEGER,
+  status INTEGER,
   chore_date DATE,
   amount DECIMAL,
   memo VARCHAR(200),
-  notified VARCHAR(1),
-  paid VARCHAR(1),
   created_date timestamp,
   updated_date timestamp,
   active_flag VARCHAR(1),
@@ -24,11 +24,10 @@ CREATE TABLE chore_entry_m
 (
   chore_entry_m_id SERIAL PRIMARY KEY, -- required by hibernate
   category INTEGER,
+  status INTEGER,
   chore_date DATE,
   amount DECIMAL,
   memo VARCHAR(200),
-  notified VARCHAR(1),
-  paid VARCHAR(1),
   created_date timestamp,
   updated_date timestamp,
   active_flag VARCHAR(1),
@@ -46,6 +45,12 @@ CREATE TABLE category
   active_flag VARCHAR(1),
   version_number INTEGER,
   UNIQUE(name, active_flag)
+);
+
+CREATE TABLE status 
+(
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(15)
 );
 
 -- see StarterRevisioinEntity.java (hibernate provides a default REVINFO tale if 

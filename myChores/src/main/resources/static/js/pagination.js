@@ -27,38 +27,11 @@ $(document).ready(function() {
           { data: 'choreDateDisplay'},
           { data: 'category'},
           { data: 'amount'},
-          { data: 'notified'},
-          { data: 'paid'}
+          { data: 'status'}
         ],
-        'columnDefs' : [{ // allow columns 1 and 2 to be displayed as HTML elements and not just straight up string values
-        	"targets": 4,
-        	"searchable": false,
-        	"orderable": true,
-            "data": "paid",
-            "render": function (data, type, full, meta ) {
-              if (data) {
-                return '<span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>';
-              }
-              else {
-                return '';	  
-              }
-            }	
-          },
-          {
-          	"targets": 3,
-          	"searchable": false,
-          	"orderable": true,
-            "data": "notified",
-            "render": function (data, type, full, meta ) {
-              if (data) {
-                return '<span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>';
-              }
-              else {
-                return '';	  
-              }
-            }	
-          }
-        ]
+        "createdRow": function(row, data, dataIndex ) {
+	       $(row).addClass(data.status);
+	    }
     }).on( 'error.dt', function (e, settings, techNote, message ) { // triggered when response is NOT of 2XX
     	alert(message);
         //console.log( 'An error has been reported by DataTables: ', message );

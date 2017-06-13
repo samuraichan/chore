@@ -16,9 +16,7 @@ public class ChoreEntrySummary {
   
   private String memo;
   
-  private boolean notified;
-  
-  private boolean paid;
+  private String status;
   
   private Integer version;
 
@@ -67,20 +65,12 @@ public class ChoreEntrySummary {
     this.memo = memo;
   }
 
-  public boolean isNotified() {
-    return notified;
+  public String getStatus() {
+    return status;
   }
 
-  public void setNotified(boolean notified) {
-    this.notified = notified;
-  }
-
-  public boolean isPaid() {
-    return paid;
-  }
-
-  public void setPaid(boolean paid) {
-    this.paid = paid;
+  public void setStatus(String status) {
+    this.status = status;
   }
 
   public Integer getVersion() {
