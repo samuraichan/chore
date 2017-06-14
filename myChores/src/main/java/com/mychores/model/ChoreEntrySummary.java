@@ -41,7 +41,7 @@ public class ChoreEntrySummary {
   }
   
   public String getChoreDateDisplay() {
-    SimpleDateFormat format1 = new SimpleDateFormat("dd MMM yyyy");
+    SimpleDateFormat format1 = new SimpleDateFormat("MM.dd.yyyy");
     return format1.format(choreDate);
   }
 

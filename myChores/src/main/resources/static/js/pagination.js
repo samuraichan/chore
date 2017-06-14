@@ -1,5 +1,8 @@
 $(document).ready(function() {
 	
+	// bootstrap tooltip init
+	$('[data-toggle="tooltip"]').tooltip(); 
+	
 	$.fn.dataTable.ext.errMode = 'none';
 	
     var table = $('#pagination').DataTable( {
@@ -23,6 +26,7 @@ $(document).ready(function() {
               return json.data;
             }
         },
+        "order": [[ 0, "desc" ]],
         "columns": [
           { data: 'choreDateDisplay'},
           { data: 'category'},

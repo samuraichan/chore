@@ -1,5 +1,39 @@
+@font-face {
+  font-family: 'Lato-Light';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Lato Light'), local('Lato-Light'), url(https://fonts.gstatic.com/s/lato/v13/IY9HZVvI1cMoAHxvl0w9LVKPGs1ZzpMvnHX-7fPOuAc.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato-Light';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Lato Light'), local('Lato-Light'), url(https://fonts.gstatic.com/s/lato/v13/22JRxvfANxSmnAhzbFH8PgLUuEpTyoUstqEm5AMlJo4.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v13/8qcEw_nrk_5HEcCpYdJu8BTbgVql8nDJpwnrE27mub0.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v13/MDadn8DQ_3oT6kvnUq_2r_esZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+
 body {
   padding-top: 70px;
+  font-family: 'Lato-Light';
 }
 
 .topbar {
@@ -15,12 +49,20 @@ body {
   font-weight: 900;
 }
 
+#pagination_wrapper {
+  padding-top: 30px;
+}
+
+#pagination thead {
+  font-family: 'Lato'
+}
+
 .btn,.navbar-custom,h1,h2,h3,h4,h5,h6 {
   text-transform: uppercase;  
 }
 
-.navbar-brand .glyphicon, .navbar-nav .glyphicon {
-  color:#ff3344;
+.navbar-brand .glyphicon, .navbar-nav .glyphicon, h2 .glyphicon {
+  color:#f95759;
 }
 
 #pagination tr.draft {
@@ -35,6 +77,74 @@ body {
   background-color: #f9f9f9;
 }
 
+h2{
+  font-family: 'Lato-Light' !important;
+  color: rgb(85,85,85);
+  display: inline-block;
+  vertical-align: middle;
+  border-right: 1px solid #ccc;
+  padding-right: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.top-content {
+  text-align: right;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.top-content ul.mini-stat {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 0;
+}
+
+.top-content ul.mini-stat > li {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.top-content ul.mini-stat > li:first-child {
+  border-left: none;
+}
+
+.top-content ul.mini-stat > li {
+  border-left: 1px solid #ddd;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.top-content ul.mini-stat h5 .stat-value {
+  display: block;
+  margin-top: 3px;
+  font-size: 1.225em;
+}
+
+.top-content ul.mini-stat h5 {
+  font-family: 'Lato';
+  float: left;
+  margin: 0;
+  text-align: left;
+  font-size: 0.85em;
+  color: #888888;
+}
+
+.stat-color-orange {
+  color:#2c3e50;  
+}
+
+.stat-color-blue {
+  color:#2696b2;  
+}
+
+.stat-color-red {
+  color:#f95759;  
+}
+
+.stat-color-green {
+  color:#3f7577;  
+}
 
 
 

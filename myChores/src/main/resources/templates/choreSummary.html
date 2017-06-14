@@ -6,9 +6,9 @@
 
     <title>Chore Summary</title>
 
-    <link rel="stylesheet" type="text/css" href="/starter/css/screen.css"></link>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css"></link>
+    <link rel="stylesheet" type="text/css" href="/starter/css/screen.css"></link>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.12.4.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
@@ -54,18 +54,40 @@
     </nav>
 
     <div class="container">
-      <div class="">
-        <h1>Navbar example</h1>
-        <table id="pagination" class="table table-bordered">
-          <thead>
-            <tr>
-              <th><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Date</th>
-              <th><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Category</th>
-              <th><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Amount</th>
-              <th><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> Status</th>
-            </tr>
-          </thead>
-	    </table>
-      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Chore</h2>
+          <em>summary</em>
+        </div>
+	    <div class="col-md-8 ">
+	      <div class="top-content">
+	        <ul class="list-inline mini-stat">
+              <li data-toggle="tooltip" title="$ 2.85" data-placement="bottom">
+                <h5>PAID <span class="stat-value stat-color-orange"><span class="glyphicon glyphicon-plus-sign"></span> 2</span></h5>
+              </li>
+              <li data-toggle="tooltip" title="$ 9.10" data-placement="bottom">
+                <h5>APPROVED <span class="stat-value stat-color-blue"><span class="glyphicon glyphicon-plus-sign"></span> 4</span></h5>
+              </li>
+              <li data-toggle="tooltip" title="$ 4.35" data-placement="bottom">
+                <h5>SUBMITTED <span class="stat-value stat-color-green"><span class="glyphicon glyphicon-plus-sign"></span> 4</span></h5>
+              </li>
+              <li data-toggle="tooltip" title="$ 15.20" data-placement="bottom">
+                <h5>DRAFT <span class="stat-value stat-color-red"><span class="glyphicon glyphicon-plus-sign"></span> 6</span></h5>
+              </li>
+          </ul>
+	      </div>
+	    </div>
+	  </div>
+	  
+	  <table id="pagination" class="table table-bordered">
+	    <thead>
+	      <tr>
+	        <th><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Date</th>
+	        <th><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Category</th>
+	        <th><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Amount</th>
+	        <th><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> Status</th>
+	      </tr>
+	    </thead>
+	  </table>
     </div> 
 </body></html>
