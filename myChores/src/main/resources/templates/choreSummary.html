@@ -8,11 +8,13 @@
 
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css"></link>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css"></link>
     <link rel="stylesheet" type="text/css" href="/starter/css/screen.css"></link>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.12.4.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
     <script type="text/javascript" src="/starter/js/jquery.spring-friendly.min.js"></script>
     <script type="text/javascript" src="/starter/js/pagination.js"></script>
   </head>
@@ -78,8 +80,66 @@
 	      </div>
 	    </div>
 	  </div>
-	  
-	  <table id="pagination" class="table table-bordered">
+	  <div class="row">
+	    <div class="col-md-4"></div>
+	    <div class="col-md-8 ">
+	      <div class="top-content">
+		    <button type="button" class="btn btn-default filter-btn" aria-label="Left Align" data-toggle="collapse" data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
+	          <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> FILTER
+	        </button>
+	        
+	        <button type="button" class="btn btn-default add-btn" aria-label="Left Align">
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <span class="add-lbl">ADD NEW ENTRY</span>
+            </button>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="collapse" id="collapseFilter">
+	    <div class="filter">
+	      <div>
+            <div class="form-group col-md-8"></div>
+            <div class="form-group col-md-4"><span class="pull-right"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></span></div>
+          </div>
+        <form>
+            <div class="form-group col-md-2">
+                <label for="name" class="control-label">Start</label>
+                <input type="email" value='' class="form-control" id="name" placeholder="mm.dd.yyyy"></input>
+            </div>
+            <div class="form-group col-md-2">
+                <label for="name" class="control-label">End</label>
+                <input type="email" value='' class="form-control" id="name" placeholder="mm.dd.yyyy"></input>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="name" class="control-label">Status</label>
+                <select class="selectpicker form-control" multiple="true" title="choose">
+                  <option>Approved</option>
+                  <option>Submitted</option>
+                  <option>Draft</option>
+                  <option>Paid</option>
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="name" class="control-label">Category</label>
+                <select class="selectpicker form-control" multiple="true" title="choose">
+                  <option>Bathrooms</option>
+              <option>Babysitting</option>
+              <option>Yard</option>
+              <option>Vehicles</option>
+                </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="name" class="control-label"><span>&nbsp;</span></label>
+              <button type="button" class="btn btn-default form-control btn-filter" aria-label="Left Align">
+                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <span class="add-lbl">SUBMIT</span>
+              </button>
+            </div>
+            
+            
+        </form>
+	    <div style="margin-bottom: 1px;">&nbsp;</div>
+	    </div>
+	  </div>
+	  <table id="pagination" class="table table-bordered" style="width:100%;">
 	    <thead>
 	      <tr>
 	        <th><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Date</th>
