@@ -12,7 +12,7 @@ import com.mychores.model.ChoreEntrySummary;
 import com.mychores.model.pagination.PageableRequest;
 import com.mychores.model.pagination.PageableResponse;
 import com.mychores.repository.jpa.CategoryRepository;
-import com.mychores.repository.mapper.ChoreEntryMapper;
+import come.mychores.service.ChoreSummaryService;
 
 @Controller
 public class ChoreSummaryController {
@@ -21,7 +21,7 @@ public class ChoreSummaryController {
   private CategoryRepository categoryRepository;
   
   @Autowired
-  private ChoreEntryMapper mapper;
+  private ChoreSummaryService service;
 
   @RequestMapping(value = "/chores", method = RequestMethod.GET)
   public String get(Model model) {
@@ -32,6 +32,6 @@ public class ChoreSummaryController {
   @ResponseBody
   @RequestMapping(value = "/summary", method = RequestMethod.POST)
   public PageableResponse<ChoreEntrySummary> findPagination(PageableRequest request, BindingResult bindingResult) {
-    return mapper.findDataTablesOutput(request);
+    return service.findDataTablesOutput(request);
   }
 }

@@ -25,7 +25,9 @@
       amount AS amount,
       category AS category,
       status AS status,
+      statusId AS statusId,
       choreDate AS choreDate,
+      createdDate AS createdDate,
       version AS version
     FROM (
      SELECT
@@ -34,7 +36,9 @@
         ce.amount AS amount,
         cat.name AS category,
         status.name AS status,
+        status.id   AS statusId,
         ce.chore_date AS choreDate,
+        ce.created_date AS createdDate,
         ce.version_number AS version
       FROM
         chore_entry ce,
@@ -47,6 +51,18 @@
     ) AS rc
     WHERE
       id is not null
+      <if test="pagingFilter != null &amp;&amp; pagingFilter.start != null">
+        AND createdDate &gt;= #{pagingFilter.start}
+      </if>
+      <if test="pagingFilter != null &amp;&amp; pagingFilter.end != null">
+        AND createdDate &lt;= #{pagingFilter.end}
+      </if>
+      <if test="pagingFilter != null &amp;&amp; pagingFilter.statuses != null &amp;&amp; pagingFilter.statuses.size() &gt; 0">
+        AND statusId IN 
+        <foreach item="status" index="index" collection="pagingFilter.statuses" open="(" separator="," close=")">
+          #{status}
+        </foreach>
+      </if>
       
       <if test="order != null">
       ORDER BY <if test="order.size == 0">rc.id</if>
@@ -72,5 +88,14 @@
       <if test="length != null">
         LIMIT #{length}
       </if>
+  </select>
+  
+  <select id="findRecordCount" resultType="java.lang.Integer">
+    SELECT
+      COUNT(*)
+    FROM
+      chore_entry ce
+    WHERE
+      ce.active_flag = 'Y'
   </select>
 </mapper>

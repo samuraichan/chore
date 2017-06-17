@@ -33,7 +33,7 @@
           </button>
           <div class="navbar-header">
             <a class="navbar-brand page-scroll" href="#page-top">
-              <span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span>
+              <span class="glyphicon glyphicon-equalizer"></span>
               <span class="light">MY</span> CHORE
             </a>
           </div>
@@ -42,7 +42,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> elise@gmail.com
+                <span class="glyphicon glyphicon-user"></span> elise@gmail.com
               </a>
               <ul class="dropdown-menu">
                 <li><a href="#">Logout</a></li>
@@ -51,7 +51,7 @@
               </ul>
             </li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </nav>
 
@@ -84,12 +84,12 @@
 	    <div class="col-md-4"></div>
 	    <div class="col-md-8 ">
 	      <div class="top-content">
-		    <button type="button" class="btn btn-default filter-btn" aria-label="Left Align" data-toggle="collapse" data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
-	          <span class="glyphicon glyphicon-filter" aria-hidden="true"></span> FILTER
+		    <button type="button" class="btn btn-default filter-btn"  data-toggle="collapse" data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
+	          <span class="glyphicon glyphicon-filter"></span> FILTER
 	        </button>
 	        
-	        <button type="button" class="btn btn-default add-btn" aria-label="Left Align">
-              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <span class="add-lbl">ADD NEW ENTRY</span>
+	        <button type="button" class="btn btn-default add-btn">
+              <span class="glyphicon glyphicon-plus"></span> <span class="add-lbl">ADD NEW ENTRY</span>
             </button>
 	      </div>
 	    </div>
@@ -98,43 +98,41 @@
 	    <div class="filter">
 	      <div>
             <div class="form-group col-md-8"></div>
-            <div class="form-group col-md-4"><span class="pull-right"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></span></div>
+            <div class="form-group col-md-4"><span class="pull-right"><span class="glyphicon glyphicon-remove-circle"></span></span></div>
           </div>
         <form>
-            <div class="form-group col-md-2">
-                <label for="name" class="control-label">Start</label>
-                <input type="email" value='' class="form-control" id="name" placeholder="mm.dd.yyyy"></input>
-            </div>
-            <div class="form-group col-md-2">
-                <label for="name" class="control-label">End</label>
-                <input type="email" value='' class="form-control" id="name" placeholder="mm.dd.yyyy"></input>
-            </div>
-            <div class="form-group col-md-3">
-                <label for="name" class="control-label">Status</label>
-                <select class="selectpicker form-control" multiple="true" title="choose">
-                  <option>Approved</option>
-                  <option>Submitted</option>
-                  <option>Draft</option>
-                  <option>Paid</option>
-                </select>
-            </div>
-            <div class="form-group col-md-3">
-                <label for="name" class="control-label">Category</label>
-                <select class="selectpicker form-control" multiple="true" title="choose">
-                  <option>Bathrooms</option>
+          <div class="form-group col-md-2">
+            <label for="name" class="control-label">Start</label>
+            <input type="text" value='' class="form-control" name="pagingFilter.start" placeholder="mm/dd/yyyy"></input>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="name" class="control-label">End</label>
+            <input type="text" value='' class="form-control" name="pagingFilter.end" placeholder="mm/dd/yyyy"></input>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="name" class="control-label">Status</label>
+            <select class="selectpicker form-control" multiple="true" title="choose">
+              <option value="102">Approved</option>
+              <option value="101">Submitted</option>
+              <option value="100">Draft</option>
+              <option value="103">Paid</option>
+            </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="name" class="control-label">Category</label>
+            <select class="selectpicker form-control" multiple="true" title="choose">
+              <option>Bathrooms</option>
               <option>Babysitting</option>
               <option>Yard</option>
               <option>Vehicles</option>
-                </select>
-            </div>
-            <div class="form-group col-md-2">
-              <label for="name" class="control-label"><span>&nbsp;</span></label>
-              <button type="button" class="btn btn-default form-control btn-filter" aria-label="Left Align">
-                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> <span class="add-lbl">SUBMIT</span>
-              </button>
-            </div>
-            
-            
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="name" class="control-label"><span>&nbsp;</span></label>
+            <button type="button" class="btn btn-default form-control btn-filter">
+              <span class="glyphicon glyphicon-ok"></span> <span class="add-lbl">SUBMIT</span>
+            </button>
+          </div>
         </form>
 	    <div style="margin-bottom: 1px;">&nbsp;</div>
 	    </div>
@@ -142,10 +140,10 @@
 	  <table id="pagination" class="table table-bordered" style="width:100%;">
 	    <thead>
 	      <tr>
-	        <th><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Date</th>
-	        <th><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Category</th>
-	        <th><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Amount</th>
-	        <th><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> Status</th>
+	        <th><span class="glyphicon glyphicon-calendar"></span> Date</th>
+	        <th><span class="glyphicon glyphicon-list-alt"></span> Category</th>
+	        <th><span class="glyphicon glyphicon-usd"></span> Amount</th>
+	        <th><span class="glyphicon glyphicon-tags"></span> Status</th>
 	      </tr>
 	    </thead>
 	  </table>

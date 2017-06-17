@@ -69,11 +69,11 @@ public class PageableRequest {
     this.length = length;
   }
 
-  public PagingFilter getSearchFilter() {
+  public PagingFilter getPagingFilter() {
     return searchFilter;
   }
 
-  public void setSearchFilter(PagingFilter searchFilter) {
+  public void setPagingFilter(PagingFilter searchFilter) {
     this.searchFilter = searchFilter;
   }
 

@@ -1,46 +1,37 @@
 package com.mychores.model.pagination;
 
 import java.util.Date;
+import java.util.List;
 
 public class PagingFilter {
-
-  private Boolean notified;
+ 
+  private Date start;
   
-  private Boolean paid;
+  private Date end;
   
-  private Date startDate;
-  
-  private Date endDate;
+  private List<Integer> statuses;
 
-  public Boolean getNotified() {
-    return notified;
+  public Date getStart() {
+    return start;
   }
 
-  public void setNotified(Boolean notified) {
-    this.notified = notified;
+  public void setStart(Date start) {
+    this.start = start;
   }
 
-  public Boolean getPaid() {
-    return paid;
+  public Date getEnd() {
+    return end;
   }
 
-  public void setPaid(Boolean paid) {
-    this.paid = paid;
+  public void setEnd(Date end) {
+    this.end = end;
   }
 
-  public Date getStartDate() {
-    return startDate;
+  public List<Integer> getStatuses() {
+    return statuses;
   }
 
-  public void setStartDate(Date startDate) {
-    this.startDate = startDate;
+  public void setStatuses(List<Integer> statuses) {
+    this.statuses = statuses;
   }
-
-  public Date getEndDate() {
-    return endDate;
-  }
-
-  public void setEndDate(Date endDate) {
-    this.endDate = endDate;
-  } 
 }

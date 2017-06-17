@@ -1,5 +1,13 @@
 $(document).ready(function() {
 	
+	var dude = function(field) {
+      var targets = [];
+      $.each(field, function(){
+    	targets.push($(this).val());
+      });
+      return targets.join(",");
+    };
+	
 	// bootstrap tooltip init
 	$('[data-toggle="tooltip"]').tooltip(); 
 	
@@ -8,17 +16,16 @@ $(document).ready(function() {
     var table = $('#pagination').DataTable( {
         "processing": true,
         "serverSide": true,
-        "searching":   true,
+        "searching": false,
         "ajax": {
           "url": "/starter/summary",
           "type": "POST",
           
           "data": function (d) {
             return $.extend( {}, d, {
-              "searchFilter.statusId": $('#status option:selected').val(),
-              "searchFilter.startDate": $('#startDate').val(),
-              "searchFilter.endDate": $('#endDate').val(),
-              "search": $('#mySearch').val()
+              "pagingFilter.start": $('input[name="pagingFilter.start"]').val(),
+              "pagingFilter.end": $('input[name="pagingFilter.end"]').val(),
+              "pagingFilter.statuses": dude($('.selectpicker').first().find('option:selected'))
             });
           },
           "dataSrc": function ( json ) {
@@ -41,7 +48,7 @@ $(document).ready(function() {
         //console.log( 'An error has been reported by DataTables: ', message );
     } );
     
-    $('#btn').on('click', function() {
+    $('.btn-filter').on('click', function() {
       table.draw();
     });
 } );
