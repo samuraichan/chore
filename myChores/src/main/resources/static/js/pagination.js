@@ -11,6 +11,11 @@ $(document).ready(function() {
 	// bootstrap tooltip init
 	$('[data-toggle="tooltip"]').tooltip(); 
 	
+	// date picker init
+	$('.date-picker').datepicker({
+	  orientation: "bottom auto"
+	});
+	
 	$.fn.dataTable.ext.errMode = 'none';
 	
     var table = $('#pagination').DataTable( {
@@ -25,7 +30,8 @@ $(document).ready(function() {
             return $.extend( {}, d, {
               "pagingFilter.start": $('input[name="pagingFilter.start"]').val(),
               "pagingFilter.end": $('input[name="pagingFilter.end"]').val(),
-              "pagingFilter.statuses": dude($('.selectpicker').first().find('option:selected'))
+              "pagingFilter.statuses": dude($('.selectpicker').first().find('option:selected')),
+              "pagingFilter.categories": dude($('.cat-dropdown').find('option:selected'))
             });
           },
           "dataSrc": function ( json ) {
@@ -51,5 +57,12 @@ $(document).ready(function() {
     $('.btn-filter').on('click', function() {
       table.draw();
     });
+    
+    $('.glyphicon-remove-circle').click(function() {
+  	  $('.filter-btn').click();
+  	  $('.selectpicker').selectpicker('deselectAll');
+  	  $('.date-picker').datepicker('clearDates');
+  	  $('.btn-filter').click();
+  	});
 } );
 

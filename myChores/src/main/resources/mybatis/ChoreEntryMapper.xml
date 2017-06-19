@@ -24,6 +24,7 @@
       id AS id,
       amount AS amount,
       category AS category,
+      categoryId AS categoryId,
       status AS status,
       statusId AS statusId,
       choreDate AS choreDate,
@@ -35,6 +36,7 @@
         ce.id AS id,
         ce.amount AS amount,
         cat.name AS category,
+        cat.id AS categoryId,
         status.name AS status,
         status.id   AS statusId,
         ce.chore_date AS choreDate,
@@ -61,6 +63,12 @@
         AND statusId IN 
         <foreach item="status" index="index" collection="pagingFilter.statuses" open="(" separator="," close=")">
           #{status}
+        </foreach>
+      </if>
+      <if test="pagingFilter != null &amp;&amp; pagingFilter.categories != null &amp;&amp; pagingFilter.categories.size() &gt; 0">
+        AND categoryId IN 
+        <foreach item="category" index="index" collection="pagingFilter.categories" open="(" separator="," close=")">
+          #{category}
         </foreach>
       </if>
       

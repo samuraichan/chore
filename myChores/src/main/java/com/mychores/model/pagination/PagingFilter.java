@@ -10,6 +10,8 @@ public class PagingFilter {
   private Date end;
   
   private List<Integer> statuses;
+  
+  private List<Integer> categories;
 
   public Date getStart() {
     return start;
@@ -33,5 +35,13 @@ public class PagingFilter {
 
   public void setStatuses(List<Integer> statuses) {
     this.statuses = statuses;
+  }
+
+  public List<Integer> getCategories() {
+    return categories;
+  }
+
+  public void setCategories(List<Integer> categories) {
+    this.categories = categories;
   }
 }
