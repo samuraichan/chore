@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -124,19 +124,13 @@
           <div class="form-group col-md-3">
             <label for="name" class="control-label">Status</label>
             <select class="selectpicker form-control" multiple="true" title="choose">
-              <option value="102">Approved</option>
-              <option value="101">Submitted</option>
-              <option value="100">Draft</option>
-              <option value="103">Paid</option>
+              <option th:each="status : ${statuses}" th:value="${status.id}" th:text="${status.name}"></option>
             </select>
           </div>
           <div class="form-group col-md-3">
             <label for="name" class="control-label">Category</label>
             <select class="selectpicker form-control cat-dropdown" multiple="true" title="choose">
-              <option value="4">Bathrooms</option>
-              <option value="3">Babysitting</option>
-              <option value="1">Yard</option>
-              <option value="5">Vehicles</option>
+              <option th:each="cat : ${categories}" th:value="${cat.id}" th:text="${cat.name}"></option>
             </select>
           </div>
           <div class="form-group col-md-2">

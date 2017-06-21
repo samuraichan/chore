@@ -44,7 +44,7 @@ public class CategoryWebTests {
   public void testFindAll() throws Exception {
     mockMvc.perform(get("/api/categories")).andExpect(status().isOk())
       .andExpect(content().contentType(APPLICATION_JSON_UTF8))
-      .andExpect((jsonPath("$[0].id", is(3))))
+      .andExpect((jsonPath("$[0].id", is(1))))
       .andExpect((jsonPath("$", hasSize(5))));
   }
 }

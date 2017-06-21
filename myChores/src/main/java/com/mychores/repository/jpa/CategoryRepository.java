@@ -10,6 +10,6 @@ public interface CategoryRepository extends CrudRepository<Category, Integer> {
 
   public Category findByName(String name);
   
-  @Query("select new com.mychores.model.IdAndName(ca.id, ca.name) from Category ca order by ca.name")
+  @Query("select new com.mychores.model.IdAndName(ca.id, ca.name) from Category ca")
   public Iterable<IdAndName> findAllIdAndNames();
 }

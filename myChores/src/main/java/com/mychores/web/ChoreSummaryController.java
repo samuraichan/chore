@@ -12,6 +12,8 @@ import com.mychores.model.ChoreEntrySummary;
 import com.mychores.model.pagination.PageableRequest;
 import com.mychores.model.pagination.PageableResponse;
 import com.mychores.repository.jpa.CategoryRepository;
+import com.mychores.repository.jpa.StatusRepository;
+
 import come.mychores.service.ChoreSummaryService;
 
 @Controller
@@ -21,11 +23,15 @@ public class ChoreSummaryController {
   private CategoryRepository categoryRepository;
   
   @Autowired
+  private StatusRepository statusRepository;
+  
+  @Autowired
   private ChoreSummaryService service;
 
   @RequestMapping(value = "/chores", method = RequestMethod.GET)
   public String get(Model model) {
     model.addAttribute("categories", categoryRepository.findAllIdAndNames());
+    model.addAttribute("statuses", statusRepository.findAllIdAndNames());
     return "choreSummary";
   }
   

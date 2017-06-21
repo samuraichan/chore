@@ -1,8 +1,9 @@
-INSERT INTO category VALUES (1, 'Yard', '2017-02-01', NULL, 'Y', 0);
-INSERT INTO category VALUES (2, 'Category', '2017-02-01', NULL, 'Y', 0);
-INSERT INTO category VALUES (3, 'Babysitting', '2017-02-01', NULL, 'Y', 0);
-INSERT INTO category VALUES (4, 'Bathrooms', '2017-02-01', NULL, 'Y', 0);
-INSERT INTO category VALUES (5, 'Vehicles', '2017-02-01', NULL, 'Y', 0);
+INSERT INTO category VALUES (1, 'Babysitting', current_date, NULL, 'Y', 0);
+INSERT INTO category VALUES (2, 'Bathrooms', current_date, NULL, 'Y', 0);
+INSERT INTO category VALUES (3, 'Folding', current_date, NULL, 'Y', 0);
+INSERT INTO category VALUES (4, 'Vehicles', current_date, NULL, 'Y', 0);
+INSERT INTO category VALUES (5, 'Yard', current_date, NULL, 'Y', 0);
+INSERT INTO category VALUES (6, 'Other', current_date, NULL, 'Y', 0);
 
 INSERT INTO STATUS VALUES (100, 'Draft');
 INSERT INTO STATUS VALUES (101, 'Submitted');
