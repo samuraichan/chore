@@ -228,6 +228,14 @@ h2{
   cursor: pointer;
 }
 
+.top-buffer {
+  margin-top:20px;
+}
+
+.left-buffer-5 {
+  padding-left:5px;
+}
+
 
 
 

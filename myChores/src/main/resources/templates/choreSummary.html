@@ -86,11 +86,11 @@
 	    <div class="col-md-4"></div>
 	    <div class="col-md-8 ">
 	      <div class="top-content">
-		    <button type="button" class="btn btn-default filter-btn"  data-toggle="collapse" data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
+		    <button type="button" class="btn btn-default filter-btn" data-toggle="collapse" data-target="#collapseFilter" aria-expanded="false" aria-controls="collapseFilter">
 	          <span class="glyphicon glyphicon-filter"></span> FILTER
 	        </button>
 	        
-	        <button type="button" class="btn btn-default add-btn">
+	        <button type="button" class="btn btn-default add-btn" data-toggle="collapse" data-target="#addentry">
               <span class="glyphicon glyphicon-plus"></span> <span class="add-lbl">ADD NEW ENTRY</span>
             </button>
 	      </div>
@@ -98,7 +98,7 @@
 	  </div>
 	  <div class="collapse" id="collapseFilter">
 	    <div class="filter">
-	      <div>
+	      <div class="row">
             <div class="form-group col-md-8"></div>
             <div class="form-group col-md-4"><span class="pull-right"><span class="glyphicon glyphicon-remove-circle"></span></span></div>
           </div>
@@ -143,6 +143,73 @@
 	    <div style="margin-bottom: 1px;">&nbsp;</div>
 	    </div>
 	  </div>
+	  <div class="collapse" id="addentry">
+        <div class="filter">
+          <div class="row">
+            <div class="form-group col-md-8"></div>
+            <div class="form-group col-md-4"><span class="pull-right"><span class="glyphicon glyphicon-remove-circle"></span></span></div>
+          </div>
+        <form>
+		  <div class="row">
+		    <div class="col-md-4">
+              <div class="row">
+                <div class="col-md-8">
+                  <label for="name" class="control-label">Start</label>
+                  <div class="input-group date">
+                    <input type="text" value="" class="form-control date-picker" name="pagingFilter.start" placeholder="mm/dd/yyyy"></input>
+                    <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="row top-buffer">
+                <div class="col-md-8">
+                  <label for="name" class="control-label">Amount</label>
+                  <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input type="text" class="form-control"></input>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="row top-buffer">
+                <div class="col-md-12">
+                  <label for="name" class="control-label">Category</label>
+                  <select class="selectpicker form-control cat-dropdown" title="choose">
+                    <option th:each="cat : ${categories}" th:value="${cat.id}" th:text="${cat.name}"></option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-md-4">
+              <label for="name" class="control-label">Status</label>
+              <select class="selectpicker form-control" title="choose">
+                <option th:each="status : ${statuses}" th:value="${status.id}" th:text="${status.name}"></option>
+              </select>
+              <div class="top-buffer">
+                <input type="checkbox" id="notify"><label for="notify" class="control-label left-buffer-5">Send Notification</label></input> 
+              </div>
+            </div>
+            
+            <div class="col-md-4">
+              <label for="name" class="control-label">Memo</label>
+              <textarea class="form-control" rows="8"></textarea>
+              <div class="pull-right top-buffer">
+                <button type="button" class="btn btn-default btn-filter top-buffer-8">
+                  <span class="glyphicon glyphicon-ok"></span> <span class="add-lbl">SUBMIT</span>
+                </button>
+              </div>
+            </div>
+		  </div>
+        
+    
+        </form>
+        <div style="margin-bottom: 1px;">&nbsp;</div>
+        </div>
+      </div>
 	  <table id="pagination" class="table table-bordered" style="width:100%;">
 	    <thead>
 	      <tr>
