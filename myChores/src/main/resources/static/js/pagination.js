@@ -54,7 +54,7 @@ $(document).ready(function() {
         //console.log( 'An error has been reported by DataTables: ', message );
     } );
     
-    $('.btn-filter').on('click', function() {
+    $('.btn-filter:first').on('click', function() {
       table.draw();
     });
     
@@ -64,5 +64,40 @@ $(document).ready(function() {
   	  $('.date-picker').datepicker('clearDates');
   	  $('.btn-filter').click();
   	});
+    
+    $('#form').on('submit', function(e) {
+      e.preventDefault();
+      var url = $(this).attr('action');
+      var data = {}
+      
+      $(this).find('input,select,textarea').each(function() {
+        data[$(this).attr('name')] = ($(this).is(':input[type="checkbox"]') ? $(this).is(':checked') : $(this).val()); 
+      });
+      
+      //data["memo"] = "dude";
+      //data["notification"] = "true";
+      
+  	  
+
+	  	$.ajax({
+	  		type : "POST",
+	  		contentType : "application/json",
+	  		url : url,
+	  		data : JSON.stringify(data),
+	  		dataType : 'json',
+	  		timeout : 100000,
+	  		success : function(data) {
+	  			console.log("SUCCESS: ", data);
+	  			;
+	  		},
+	  		error : function(e) {
+	  			console.log("ERROR: ", e);
+	  			
+	  		},
+	  		done : function(e) {
+	  			console.log("DONE");
+	  		}
+	  	});
+    });
 } );
 

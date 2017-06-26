@@ -144,19 +144,19 @@
 	    </div>
 	  </div>
 	  <div class="collapse" id="addentry">
-        <div class="filter">
-          <div class="row">
-            <div class="form-group col-md-8"></div>
-            <div class="form-group col-md-4"><span class="pull-right"><span class="glyphicon glyphicon-remove-circle"></span></span></div>
-          </div>
-        <form>
-		  <div class="row">
-		    <div class="col-md-4">
+      <div class="filter">
+        <div class="row">
+          <div class="form-group col-md-8"></div>
+          <div class="form-group col-md-4"><span class="pull-right"><span class="glyphicon glyphicon-remove-circle"></span></span></div>
+        </div>
+        <form id="form" method="post" action="/starter/chore/add">
+		    <div class="row">
+		      <div class="col-md-4">
               <div class="row">
                 <div class="col-md-8">
                   <label for="name" class="control-label">Start</label>
                   <div class="input-group date">
-                    <input type="text" value="" class="form-control date-picker" name="pagingFilter.start" placeholder="mm/dd/yyyy"></input>
+                    <input type="text" value="" class="form-control date-picker" name="start" placeholder="mm/dd/yyyy"></input>
                     <span class="input-group-addon">
                       <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -169,7 +169,7 @@
                   <label for="name" class="control-label">Amount</label>
                   <div class="input-group">
                     <div class="input-group-addon">$</div>
-                    <input type="text" class="form-control"></input>
+                    <input type="text" class="form-control" name="amount"></input>
                   </div>
                 </div>
               </div>
@@ -177,7 +177,7 @@
               <div class="row top-buffer">
                 <div class="col-md-12">
                   <label for="name" class="control-label">Category</label>
-                  <select class="selectpicker form-control cat-dropdown" title="choose">
+                  <select class="selectpicker form-control cat-dropdown" title="choose" name="category">
                     <option th:each="cat : ${categories}" th:value="${cat.id}" th:text="${cat.name}"></option>
                   </select>
                 </div>
@@ -186,19 +186,19 @@
             
             <div class="col-md-4">
               <label for="name" class="control-label">Status</label>
-              <select class="selectpicker form-control" title="choose">
+              <select class="selectpicker form-control" title="choose" name="status">
                 <option th:each="status : ${statuses}" th:value="${status.id}" th:text="${status.name}"></option>
               </select>
               <div class="top-buffer">
-                <input type="checkbox" id="notify"><label for="notify" class="control-label left-buffer-5">Send Notification</label></input> 
+                <input type="checkbox" name="notification" id="notify" value="true"></input><label for="notify" class="control-label left-buffer-5">Send Notification</label>
               </div>
             </div>
             
             <div class="col-md-4">
               <label for="name" class="control-label">Memo</label>
-              <textarea class="form-control" rows="8"></textarea>
+              <textarea class="form-control" rows="8" name="memo"></textarea>
               <div class="pull-right top-buffer">
-                <button type="button" class="btn btn-default btn-filter top-buffer-8">
+                <button type="submit" form="form" class="btn btn-default btn-filter top-buffer-8">
                   <span class="glyphicon glyphicon-ok"></span> <span class="add-lbl">SUBMIT</span>
                 </button>
               </div>
