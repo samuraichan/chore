@@ -74,30 +74,34 @@ $(document).ready(function() {
         data[$(this).attr('name')] = ($(this).is(':input[type="checkbox"]') ? $(this).is(':checked') : $(this).val()); 
       });
       
-      //data["memo"] = "dude";
-      //data["notification"] = "true";
-      
-  	  
-
-	  	$.ajax({
-	  		type : "POST",
-	  		contentType : "application/json",
-	  		url : url,
-	  		data : JSON.stringify(data),
-	  		dataType : 'json',
-	  		timeout : 100000,
-	  		success : function(data) {
-	  			console.log("SUCCESS: ", data);
-	  			;
-	  		},
-	  		error : function(e) {
-	  			console.log("ERROR: ", e);
-	  			
-	  		},
-	  		done : function(e) {
-	  			console.log("DONE");
-	  		}
-	  	});
+  	  $.ajax({
+  		type : "POST",
+  		contentType : "application/json",
+  		url : url,
+  		data : JSON.stringify(data),
+  		dataType : 'json',
+  		timeout : 100000,
+  		success : function(data) {
+  		  if (data.type == "error") {
+  			var errorList = $('#errorList');
+  		    errorList.find('li').remove();
+  		    data.fieldErrors.forEach(function(item) {
+  		      errorList.append('<li>' + item.message + '</li>');	
+  		    });
+  		  errorList.toggle(true);
+  		  }
+  		  else {
+  	        // redraw datatables and close dialog down
+  		  }
+  		},
+  		error : function(e) {
+  			console.log("ERROR: ", e);
+  			
+  		},
+  		done : function(e) {
+  			console.log("DONE");
+  		}
+  	  });
     });
 } );
 

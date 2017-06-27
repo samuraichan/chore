@@ -7,11 +7,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.mychores.model.AjaxFormResponse;
 import com.mychores.model.ChoreEntrySummary;
 import com.mychores.model.form.ChoreEntry;
 import com.mychores.model.pagination.PageableRequest;
@@ -48,9 +50,15 @@ public class ChoreSummaryController {
   
   @ResponseBody
   @RequestMapping(value = "/chore/add", method = RequestMethod.POST, headers="Accept=application/json")
-  public HttpStatus getSearchResultViaAjax(@RequestBody @Valid ChoreEntry form, BindingResult result) {
+  public AjaxFormResponse getSearchResultViaAjax(@RequestBody @Valid ChoreEntry form, BindingResult result) {
 
-    System.out.println("maede it");
-    return HttpStatus.OK;
+    AjaxFormResponse response = new AjaxFormResponse();
+    if (result.hasErrors()) {
+      response.setType("error");
+      for (FieldError fieldError: result.getFieldErrors()) {
+        response.addErrorMessage(fieldError.getField(), fieldError.getDefaultMessage());
+      }
+    }
+    return response;
   }
 }
