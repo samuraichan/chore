@@ -82,16 +82,21 @@ $(document).ready(function() {
   		dataType : 'json',
   		timeout : 100000,
   		success : function(data) {
-  		  if (data.type == "error") {
+  		  if (data.errors) {
   			var errorList = $('#errorList');
   		    errorList.find('li').remove();
-  		    data.fieldErrors.forEach(function(item) {
-  		      errorList.append('<li>' + item.message + '</li>');	
-  		    });
-  		  errorList.toggle(true);
+  		    
+            $.each(data.errors, function(key,value){
+              $.each(value, function(index,msg) {
+                errorList.append('<li>' + msg + '</li>');
+              });
+            });
+  		    
+  		    errorList.toggle(true);
   		  }
   		  else {
-  	        // redraw datatables and close dialog down
+  	        $('.add-btn').trigger('click');
+  	        table.draw();
   		  }
   		},
   		error : function(e) {

@@ -12,6 +12,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 
+/**
+ * Custom deserializer for JSON properties bound to java.util.Date in order to handle the date formatting 
+ * of MM/dd/yyyy
+ * 
+ * @author rchiari
+ */
 public class CustomDateDeserializer extends JsonDeserializer<Date> {
 
   private SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
@@ -23,9 +29,9 @@ public class CustomDateDeserializer extends JsonDeserializer<Date> {
       return (StringUtils.isEmpty(str) ? null : dateFormat.parse(str));
     } 
     catch (ParseException e) {
-      System.out.println("something went wrong man");
+      throw new IllegalArgumentException(String.format(
+          "Failed to parse Date value '%s': %s", str, e.getMessage()));
     }
-    return paramDeserializationContext.parseDate(str);
   }
 
 }
