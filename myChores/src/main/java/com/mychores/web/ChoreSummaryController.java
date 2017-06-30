@@ -63,13 +63,15 @@ public class ChoreSummaryController {
   public AjaxFormResponse getSearchResultViaAjax(@RequestBody @Valid ChoreEntry form, BindingResult result) {
 
     AjaxFormResponse response = new AjaxFormResponse();
-    if(result.hasErrors()) {
+    
+    if (!result.hasErrors()) {
+      choreEntryRepository.save(form);
+    }
+    else {
       for(FieldError error: result.getFieldErrors()) {
         response.addError(error.getField(), messageSource.getMessage(error, Locale.US));
       }
-    }
-    
-    choreEntryRepository.save(form);
+    } 
     
     return response;
   }

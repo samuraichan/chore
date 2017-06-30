@@ -28,10 +28,10 @@ $(document).ready(function() {
           
           "data": function (d) {
             return $.extend( {}, d, {
-              "pagingFilter.start": $('input[name="pagingFilter.start"]').val(),
-              "pagingFilter.end": $('input[name="pagingFilter.end"]').val(),
-              "pagingFilter.statuses": dude($('.selectpicker').first().find('option:selected')),
-              "pagingFilter.categories": dude($('.cat-dropdown').find('option:selected'))
+              "pagingFilter.start": $('input[name="pagingFilter.start"].visible').val(),
+              "pagingFilter.end": $('input[name="pagingFilter.end"].visible').val(),
+              "pagingFilter.statuses": dude($('.selectpicker:visible').first().find('option:selected')),
+              "pagingFilter.categories": dude($('.cat-dropdown:visible').find('option:selected'))
             });
           },
           "dataSrc": function ( json ) {
