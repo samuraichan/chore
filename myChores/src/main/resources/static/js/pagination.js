@@ -30,8 +30,8 @@ $(document).ready(function() {
             return $.extend( {}, d, {
               "pagingFilter.start": $('input[name="pagingFilter.start"].visible').val(),
               "pagingFilter.end": $('input[name="pagingFilter.end"].visible').val(),
-              "pagingFilter.statuses": dude($('.selectpicker:visible').first().find('option:selected')),
-              "pagingFilter.categories": dude($('.cat-dropdown:visible').find('option:selected'))
+              "pagingFilter.statuses": dude($('.filter-st:visible').find('option:selected')),
+              "pagingFilter.categories": dude($('.filter-cat:visible').find('option:selected'))
             });
           },
           "dataSrc": function ( json ) {
@@ -97,6 +97,7 @@ $(document).ready(function() {
   		  else {
   	        $('.add-btn').trigger('click');
   	        table.draw();
+  	        $.growl.notice({ message: "The kitten is cute!" });
   		  }
   		},
   		error : function(e) {
