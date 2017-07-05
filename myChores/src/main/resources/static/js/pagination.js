@@ -65,12 +65,15 @@ $(document).ready(function() {
   	  $('.btn-filter').click();
   	});
     
-    $('#form').on('submit', function(e) {
+    
+    	
+   $('.btn-primary').on('click', function(e) {
       e.preventDefault();
-      var url = $(this).attr('action');
+      var form = $('#entryform');
+      var url = form.attr('action');
       var data = {}
       
-      $(this).find('input,select,textarea').each(function() {
+      form.find('input,select,textarea').each(function() {
         data[$(this).attr('name')] = ($(this).is(':input[type="checkbox"]') ? $(this).is(':checked') : $(this).val()); 
       });
       
@@ -95,7 +98,7 @@ $(document).ready(function() {
   		    errorList.toggle(true);
   		  }
   		  else {
-  	        $('.add-btn').trigger('click');
+  	        $('.btn-cancel').trigger('click');
   	        table.draw();
   	        $.growl.notice({ message: "The kitten is cute!" });
   		  }
